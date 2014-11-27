@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>USER TRACK</title>
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+</head>
+
+<body>
+	<div class="title">USER TRACK</div>
+
+		
+		<div class="content">	
+		<% k.forEach(function(user) { %>
+		<div class="smallArticle">
+		    <a href="/detail/<%= user.index %>" class="link">
+		      
+		      <h3><%= user.username %></h3>
+		      <p><%= user.smallArticle %></p>
+		    </a>
+		</div>	
+		<% }); %>
+		</div>
+			
+
+</body>	
+<script type="text/javascript" src="https://cdn.pubnub.com/pubnub.min.js"></script>
+<script type="text/javascript" src="../usertrack.js"></script>
+<script>
+	Usertrack.init("1234","1234-1234-1234-1234");
+	Usertrack.track({identity:"jamel",age:"21",email:"jamel@gmail.com"});
+	Usertrack.send("load","homePage");
+</script>
+</html>
